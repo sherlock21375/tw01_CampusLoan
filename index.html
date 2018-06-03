@@ -1,0 +1,172 @@
+﻿<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+<title>用数学告诉你“校园贷款”有多可怕！</title>
+</head>
+<body>
+<link rel="stylesheet" type="text/css" href="css/zzsc.css">
+<link href='http://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" type="text/css" href="css/style.css" />
+<link rel="stylesheet" type="text/css" href="css/jquery.mobile-1.4.2.css">
+<style>
+body{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+#container {
+	width: 100%;
+	margin: 0 auto;
+}
+#show_num {
+	width: 100%;
+	background: #fff;
+	padding:5% 0 3% 1%;
+}
+#num{ padding: 0 0 0 1.2%}
+#start,#stop{margin:15% 4% 0 1%}
+.counter{ font-size:64px; font-family:'Pacifico';width:45%; float:left;}
+</style>
+<script type="text/javascript" src="js/jquery-1.7.1.min.js"></script>
+<script type="text/javascript" src="js/jquery.mobile-1.4.2.js"></script>
+<script>
+<script type="text/javascript">
+$(document).ready(function(e) {
+  var h = $(".about4_main ul li:first-child").height()/2;<!--第一个li高度的一半-->
+  var h1 = $(".about4_main ul li:last-child").height()/2;<!--最后一个li高度的一半-->
+  $(".line").css("top",h);
+  $(".line").height($(".about4_main").height()-h1-h);
+});
+</script>
+<div id="container"> 
+  <div data-role="page" id="pageone" style="background:#D0C7D3">
+    <div data-role="content" style="text-align:center"> 
+      <img src="images/head.png" style=" width:95%;margin:0 auto">
+      <div style="width:90%; margin:0 auto; clear:both">
+        <div style="float: left;font-size: 1.2em; padding: 6% 0 0 3%;width: 45%;">贷款金额:</div>
+        <div style="width:50%; float:left">
+          <input id="money" type="text">
+        </div>
+      </div>
+      <div id="show_num">
+        <div style="width:90%; margin:0 auto; height:100px;"> 
+          <button id="start" style="float:left; height:50%; background:white">计算</button>
+        </div>
+        <div style="width:90%; margin-bottom: 20px;margin-top: auto;margin-right: auto;margin-left: auto; height:120px;"> 
+          <div style="width:45%; font-size:20px; font-family:'Pacifico'; margin: 0;">一周滞纳金:</div>
+          <span class="counter" id="counter1">0.00</span>
+        </div>
+        <div style="width:90%; margin:0 auto; height:120px;"> 
+          <div style="width:45%;font-size:20px; font-family:'Pacifico'; margin: 0;">一月滞纳金:</div>
+          <span class="counter" id="counter2">0.00</span>
+        </div>
+        <div style="width:90%; margin:0 auto; height:120px;"> 
+          <div style="width:45%;font-size:20px; font-family:'Pacifico'; margin: 0;">半年滞纳金:</div>
+          <span class="counter" id="counter3">0.00</span>
+        </div>
+        <div style="width:90%; margin:0 auto; height:120px;"> 
+          <div style="width:45%;font-size:20px; font-family:'Pacifico'; margin: 0;">一年滞纳金:</div>
+          <span class="counter" id="counter4" style="display:block">0.00</span>
+        </div>
+        <div class="about4" style="width: 90%">
+          <div class="about4_ch">催款 “十部曲”</div>
+          <div class="about4_main">
+            <div class="line"></div>
+              <ul>
+                <li>
+                  给所有贷款学生群发通知逾期
+                </li>
+                <li>
+                  单独发短信
+                </li>
+                <li>
+                  单独打电话
+                </li>
+                <li>
+                  联系贷款学生室友
+                </li>
+                <li>
+                  联系学生父母
+                </li>
+                <li>
+                  再联系警告学生本人
+                </li>
+                <li>
+                 发送律师函
+                </li>
+                <li>
+                  去学校找学生
+                </li>
+                <li>
+                  在学校公共场合贴学生欠款的大字报
+                </li>
+                <li>
+                  群发短信给学生所有亲朋好友
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      <div style="text-align:center;margin:50px 0">
+        <p>技术支持：安小毅工作室</p>
+        <p style="margin:20px 0"></p>
+      </div>
+    </div>
+  </div> 
+</div>
+<script src="js/jquery.waypoints.min.js"></script>
+<script type="text/javascript" src="js/jquery.countup.js"></script>
+<script type="text/javascript">
+  $("#start").click(function(){
+    var money = $('#money').val();
+    if(money==""){
+      alert("请输入金额！")
+      die;
+    }
+    if(parseFloat(money)<100){
+      alert("这点钱小毅可以借给你，请输入合理金额！100~99999")
+      die;
+    }
+    if(parseFloat(money)>99999){
+      alert("你想借，人家借得起？请输入合理金额！100~99999")
+      die;
+    }
+    var after_money1 = count(money,7);
+    var after_money2 = count(money,31);
+    var after_money3 = count(money,181);
+    var after_money4 = count(money,361);
+    $('#counter1').text(after_money1);
+    $('#counter2').text(after_money2);
+    $('#counter3').text(after_money3);
+    $('#counter4').text(after_money4);
+    var demo1 = new CountUp("counter1", 0, after_money1, 2, 2.5);
+    var demo2 = new CountUp("counter2", 0, after_money2, 2, 2.5);
+    var demo3 = new CountUp("counter3", 0, after_money3, 2, 2.5);
+    var demo4 = new CountUp("counter4", 0, after_money4, 2, 2.5);
+    demo1.start();
+    demo2.start();
+    demo3.start();
+    demo4.start();
+  });
+  function count(before_money,day){
+    var lilv = 0.01;
+    var before_money = parseFloat(before_money);
+    if (day==7) {
+      var after_money = before_money*lilv*7;
+    }
+    if (day==31) {
+      var after_money = before_money*lilv*30+before_money*lilv*2;
+    }
+    if (day==181) {
+      var after_money = before_money*lilv*30*(1+2+3+4+5+6)+before_money*lilv*7;
+    }
+    if (day==361) {
+      var after_money = before_money*lilv*30*(1+2+3+4+5+6+7+8+9+10+11+12)+before_money*lilv*13;
+    }
+    return after_money;
+  }
+</script>
+</body>
+</html>
